@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './pages/HomePage';
+import { Box, useTheme } from '@mui/material';
+import Footer from './components/Footer';
 
 function App() {
+  const theme = useTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+        backgroundColor: theme.palette.background.paper,
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+      }}
+    >
+      <Box
+        sx={{
+          padding: theme.spacing(2),
+          width: '100%',
+          flexGrow: 1,
+        }}
+      >
+        <HomePage />
+      </Box>
+      <Footer />
+    </Box>
   );
 }
 
